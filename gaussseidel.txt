@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+#define acc 0.0001
+#define X1(x2,x3,x4) ((x2 + x3 + x4 -4)/5)
+#define X2(x1,x3,x4) ((x1 + x3 + x4 +12)/10)
+#define X3(x1,x2,x4) ((x1 + x2 + x4 +8)/5)
+#define X4(x1,x2,x3) ((x1 + x2 + x3 +34)/10)
+
+void main()
+{
+  double x1=0,x2=0,x3=0,x4=0,y1,y2,y3,y4;
+  int i=0;
+  system("cls");
+  printf("\n______________________________________________________________\n");
+  printf("\n   x1\t\t   x2\t\t   x3\t\t    x4\n");
+  printf("\n______________________________________________________________\n");
+  printf("\n%f\t%f\t%f\t%f",x1,x2,x3,x4);
+  do
+  {
+   y1=X1(x2,x3,x4);
+   y2=X2(x1,x3,x4);
+   y3=X3(x1,x2,x4);
+   y4=X4(x1,x2,x3);
+   if(fabs(y1-x1)<acc && fabs(y2-x2)<acc && fabs(y3-x3)<acc &&fabs(y4-x4) )
+   {
+     printf("\n_____________________________________________________________\n");
+     printf("\n\nx1 = %.3lf",y1);
+     printf("\n\nx2 = %.3lf",y2);
+     printf("\n\nx3 = %.3lf",y3);
+     printf("\n\nx4= %.3lf",y4);
+     i = 1;
+   }
+   else
+   {
+     x1 = y1;
+     x2 = y2;
+     x3 = y3;
+     x4 = y4;
+     printf("\n%f\t%f\t%f\t%f",x1,x2,x3,x4);
+   }
+  }while(i != 1);
+getch();
+}
